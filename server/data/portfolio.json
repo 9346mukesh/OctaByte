@@ -1,0 +1,270 @@
+{
+  "currentHoldings": [
+    {
+      "id": "holding-1",
+      "stockName": "HDFC Bank",
+      "marketSymbol": "HDFCBANK",
+      "sector": "Financial Sector",
+      "exchange": "NSE",
+      "purchasePrice": 1490,
+      "quantity": 50
+    },
+    {
+      "id": "holding-2",
+      "stockName": "Bajaj Finance",
+      "marketSymbol": "BAJFINANCE",
+      "sector": "Financial Sector",
+      "exchange": "NSE",
+      "purchasePrice": 6466,
+      "quantity": 15
+    },
+    {
+      "id": "holding-3",
+      "stockName": "ICICI Bank",
+      "marketSymbol": "532174",
+      "sector": "Financial Sector",
+      "exchange": "BSE",
+      "purchasePrice": 780,
+      "quantity": 84
+    },
+    {
+      "id": "holding-4",
+      "stockName": "Bajaj Housing",
+      "marketSymbol": "544252",
+      "sector": "Financial Sector",
+      "exchange": "BSE",
+      "purchasePrice": 130,
+      "quantity": 504
+    },
+    {
+      "id": "holding-5",
+      "stockName": "Savani Financials",
+      "marketSymbol": "511577",
+      "sector": "Financial Sector",
+      "exchange": "BSE",
+      "purchasePrice": 24,
+      "quantity": 1080
+    },
+    {
+      "id": "holding-6",
+      "stockName": "Affle India",
+      "marketSymbol": "AFFLE",
+      "sector": "Tech Sector",
+      "exchange": "NSE",
+      "purchasePrice": 1151,
+      "quantity": 50
+    },
+    {
+      "id": "holding-7",
+      "stockName": "LTI Mindtree",
+      "marketSymbol": "LTIM",
+      "sector": "Tech Sector",
+      "exchange": "NSE",
+      "purchasePrice": 4775,
+      "quantity": 16
+    },
+    {
+      "id": "holding-8",
+      "stockName": "KPIT Tech",
+      "marketSymbol": "542651",
+      "sector": "Tech Sector",
+      "exchange": "BSE",
+      "purchasePrice": 672,
+      "quantity": 61
+    },
+    {
+      "id": "holding-9",
+      "stockName": "Tata Tech",
+      "marketSymbol": "544028",
+      "sector": "Tech Sector",
+      "exchange": "BSE",
+      "purchasePrice": 1072,
+      "quantity": 63
+    },
+    {
+      "id": "holding-10",
+      "stockName": "BLS E-Services",
+      "marketSymbol": "544107",
+      "sector": "Tech Sector",
+      "exchange": "BSE",
+      "purchasePrice": 232,
+      "quantity": 191
+    },
+    {
+      "id": "holding-11",
+      "stockName": "Tanla",
+      "marketSymbol": "532790",
+      "sector": "Tech Sector",
+      "exchange": "BSE",
+      "purchasePrice": 1134,
+      "quantity": 45
+    },
+    {
+      "id": "holding-12",
+      "stockName": "Dmart",
+      "marketSymbol": "DMART",
+      "sector": "Consumer",
+      "exchange": "NSE",
+      "purchasePrice": 3777,
+      "quantity": 27
+    },
+    {
+      "id": "holding-13",
+      "stockName": "Tata Consumer",
+      "marketSymbol": "532540",
+      "sector": "Consumer",
+      "exchange": "BSE",
+      "purchasePrice": 845,
+      "quantity": 90
+    },
+    {
+      "id": "holding-14",
+      "stockName": "Pidilite",
+      "marketSymbol": "500331",
+      "sector": "Consumer",
+      "exchange": "BSE",
+      "purchasePrice": 2376,
+      "quantity": 36
+    },
+    {
+      "id": "holding-15",
+      "stockName": "Tata Power",
+      "marketSymbol": "500400",
+      "sector": "Power",
+      "exchange": "BSE",
+      "purchasePrice": 224,
+      "quantity": 225
+    },
+    {
+      "id": "holding-16",
+      "stockName": "KPI Green",
+      "marketSymbol": "542323",
+      "sector": "Power",
+      "exchange": "BSE",
+      "purchasePrice": 875,
+      "quantity": 50
+    },
+    {
+      "id": "holding-17",
+      "stockName": "Suzlon",
+      "marketSymbol": "532667",
+      "sector": "Power",
+      "exchange": "BSE",
+      "purchasePrice": 44,
+      "quantity": 450
+    },
+    {
+      "id": "holding-18",
+      "stockName": "Gensol",
+      "marketSymbol": "542851",
+      "sector": "Power",
+      "exchange": "BSE",
+      "purchasePrice": 998,
+      "quantity": 45
+    },
+    {
+      "id": "holding-19",
+      "stockName": "Hariom Pipes",
+      "marketSymbol": "543517",
+      "sector": "Pipe Sector",
+      "exchange": "BSE",
+      "purchasePrice": 580,
+      "quantity": 60
+    },
+    {
+      "id": "holding-20",
+      "stockName": "Astral",
+      "marketSymbol": "ASTRAL",
+      "sector": "Pipe Sector",
+      "exchange": "NSE",
+      "purchasePrice": 1517,
+      "quantity": 56
+    },
+    {
+      "id": "holding-21",
+      "stockName": "Polycab",
+      "marketSymbol": "542652",
+      "sector": "Pipe Sector",
+      "exchange": "BSE",
+      "purchasePrice": 2818,
+      "quantity": 28
+    },
+    {
+      "id": "holding-22",
+      "stockName": "Clean Science",
+      "marketSymbol": "543318",
+      "sector": "Others",
+      "exchange": "BSE",
+      "purchasePrice": 1610,
+      "quantity": 32
+    },
+    {
+      "id": "holding-23",
+      "stockName": "Deepak Nitrite",
+      "marketSymbol": "506401",
+      "sector": "Others",
+      "exchange": "BSE",
+      "purchasePrice": 2248,
+      "quantity": 27
+    },
+    {
+      "id": "holding-24",
+      "stockName": "Fine Organic",
+      "marketSymbol": "541557",
+      "sector": "Others",
+      "exchange": "BSE",
+      "purchasePrice": 4284,
+      "quantity": 16
+    },
+    {
+      "id": "holding-25",
+      "stockName": "Gravita",
+      "marketSymbol": "533282",
+      "sector": "Others",
+      "exchange": "BSE",
+      "purchasePrice": 2037,
+      "quantity": 8
+    },
+    {
+      "id": "holding-26",
+      "stockName": "SBI Life",
+      "marketSymbol": "540719",
+      "sector": "Others",
+      "exchange": "BSE",
+      "purchasePrice": 1197,
+      "quantity": 49
+    }
+  ],
+  "soldHoldings": [
+    {
+      "id": "holding-27",
+      "stockName": "Infy",
+      "marketSymbol": "500209",
+      "sector": null,
+      "exchange": "BSE",
+      "purchasePrice": 1647,
+      "quantity": 36,
+      "salePrice": 1920
+    },
+    {
+      "id": "holding-28",
+      "stockName": "Happeist Mind",
+      "marketSymbol": "543237",
+      "sector": null,
+      "exchange": "BSE",
+      "purchasePrice": 1103,
+      "quantity": 45,
+      "salePrice": 716
+    },
+    {
+      "id": "holding-29",
+      "stockName": "Easemytrip",
+      "marketSymbol": "543272",
+      "sector": null,
+      "exchange": "BSE",
+      "purchasePrice": 20,
+      "quantity": 1332,
+      "salePrice": 15.5
+    }
+  ]
+}
