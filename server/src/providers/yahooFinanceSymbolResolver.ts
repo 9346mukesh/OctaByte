@@ -4,6 +4,7 @@ const yahooFinanceSymbolByMarketSymbol: Record<
 > = {
   "532174": "ICICIBANK.BO",
   "544252": "BAJAJHFL.BO",
+  "511577": "MANTRA.BO",
   "542651": "KPITTECH.BO",
   "544028": "TATATECH.BO",
   "544107": "BLSE.BO",

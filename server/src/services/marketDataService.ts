@@ -30,6 +30,9 @@ export class MarketDataService {
   private readonly fundamentalDataCacheDurationMilliseconds =
     2 * 60_000;
 
+  private readonly loggedProviderFailures =
+    new Set<string>();
+
   constructor(
     private readonly yahooFinanceProvider: YahooFinanceProvider,
     private readonly googleFinanceProvider: GoogleFinanceProvider,
@@ -57,8 +60,10 @@ export class MarketDataService {
       currentMarketPriceResult.status ===
       "rejected"
     ) {
-      console.error(
-        `Yahoo Finance failed for ${exchange} ${marketSymbol}:`,
+      this.logProviderFailure(
+        "Yahoo Finance",
+        marketSymbol,
+        exchange,
         currentMarketPriceResult.reason,
       );
     }
@@ -67,8 +72,10 @@ export class MarketDataService {
       fundamentalDataResult.status ===
       "rejected"
     ) {
-      console.error(
-        `Google Finance failed for ${exchange} ${marketSymbol}:`,
+      this.logProviderFailure(
+        "Google Finance",
+        marketSymbol,
+        exchange,
         fundamentalDataResult.reason,
       );
     }
@@ -97,6 +104,31 @@ export class MarketDataService {
           ? "unavailable"
           : "available",
     };
+  }
+
+  private logProviderFailure(
+    providerName: string,
+    marketSymbol: string,
+    exchange: "NSE" | "BSE",
+    reason: unknown,
+  ): void {
+    const failureKey =
+      `${providerName}:${exchange}:${marketSymbol}`;
+
+    if (this.loggedProviderFailures.has(failureKey)) {
+      return;
+    }
+
+    this.loggedProviderFailures.add(failureKey);
+
+    const message =
+      reason instanceof Error
+        ? reason.message
+        : String(reason);
+
+    console.warn(
+      `${providerName} unavailable for ${exchange} ${marketSymbol}: ${message}`,
+    );
   }
 
   private async getCurrentMarketPriceWithCache(
@@ -140,6 +172,10 @@ export class MarketDataService {
         currentMarketPrice,
         cachedAt: Date.now(),
       },
+    );
+
+    this.loggedProviderFailures.delete(
+      `Yahoo Finance:${exchange}:${marketSymbol}`,
     );
 
     return currentMarketPrice;
@@ -196,6 +232,10 @@ export class MarketDataService {
         ...fundamentalData,
         cachedAt: Date.now(),
       },
+    );
+
+    this.loggedProviderFailures.delete(
+      `Google Finance:${exchange}:${marketSymbol}`,
     );
 
     return fundamentalData;

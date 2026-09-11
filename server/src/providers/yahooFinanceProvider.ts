@@ -1,6 +1,7 @@
 import {
   resolveYahooFinanceSymbol,
 } from "./yahooFinanceSymbolResolver.js";
+import { RequestThrottle } from "../utils/requestThrottle.js";
 
 export interface YahooFinanceProvider {
   getCurrentMarketPrice(
@@ -19,6 +20,17 @@ interface YahooFinanceChartResponse {
     error: unknown;
   };
 }
+
+const yahooFinanceRequestTimeoutMilliseconds =
+  Number(process.env.MARKET_DATA_REQUEST_TIMEOUT_MS) ||
+  10_000;
+
+const yahooFinanceRequestThrottle =
+  new RequestThrottle(
+    Number(
+      process.env.MARKET_DATA_MIN_REQUEST_INTERVAL_MS,
+    ) || 250,
+  );
 
 export class YahooFinanceMarketDataProvider
   implements YahooFinanceProvider
@@ -44,11 +56,15 @@ export class YahooFinanceMarketDataProvider
       `${encodeURIComponent(yahooFinanceSymbol)}`;
 
     try {
-      const response = await fetch(
-        url,
-        {
-          signal: AbortSignal.timeout(5000),
-        },
+      const response = await yahooFinanceRequestThrottle.run(
+        () => fetch(
+          url,
+          {
+            signal: AbortSignal.timeout(
+              yahooFinanceRequestTimeoutMilliseconds,
+            ),
+          },
+        ),
       );
 
       if (!response.ok) {

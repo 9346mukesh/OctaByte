@@ -1,5 +1,6 @@
 export interface MarketData {
-  currentMarketPrice: number;
+  currentMarketPrice: number | null;
   priceToEarningsRatio: number | null;
-  latestEarnings: number | null;
+  latestEarningsPerShare: number | null;
+  dataStatus: "available" | "unavailable";
 }

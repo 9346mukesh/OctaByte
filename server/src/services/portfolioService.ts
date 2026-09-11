@@ -1,4 +1,5 @@
 import { MarketDataService } from "./marketDataService.js";
+import type { PortfolioResponse } from "../types/portfolioResponse.js";
 import { processWithConcurrency } from "../utils/processWithConcurrency.js";
 import { PortfolioRepository } from "../repositories/portfolioRepository.js";
 import {
@@ -11,7 +12,7 @@ export class PortfolioService {
     private readonly marketDataService: MarketDataService,
   ) {}
 
-  async getPortfolio() {
+  async getPortfolio(): Promise<PortfolioResponse> {
     const portfolioData =
       await this.portfolioRepository.getPortfolioData();
 
@@ -26,7 +27,7 @@ export class PortfolioService {
     const marketDataResults =
       await processWithConcurrency(
         portfolioData.currentHoldings,
-        4,
+        2,
         (holding) =>
           this.marketDataService.getMarketData(
             holding.marketSymbol,

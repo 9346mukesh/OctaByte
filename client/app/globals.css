@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080b16;
+  --foreground: #f8fafc;
+  --accent-primary: #8b7cff;
+  --accent-success: #50e3a4;
+  --accent-danger: #ff6b8a;
+  --border-subtle: #252a3d;
+  --bg-card: #111526;
+  --text-secondary: #a5abc2;
+  --text-muted: #727991;
 }
 
 @theme inline {
@@ -12,15 +19,41 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  background-image: radial-gradient(circle at 78% -10%, rgba(139, 124, 255, 0.16), transparent 34rem), linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(139, 124, 255, 0.45);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Smooth animations for data updates */
+@keyframes fadeInNumber {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-number {
+  animation: fadeInNumber 0.3s ease-in-out;
 }

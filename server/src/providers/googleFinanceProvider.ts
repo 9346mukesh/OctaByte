@@ -1,4 +1,5 @@
 import type { MarketData } from "../types/market.js";
+import { RequestThrottle } from "../utils/requestThrottle.js";
 
 export interface GoogleFinanceProvider {
   getFundamentalData(
@@ -17,6 +18,17 @@ interface GoogleFinanceFundamentalData {
   latestEarningsPerShare: number | null;
 }
 
+const googleFinanceRequestTimeoutMilliseconds =
+  Number(process.env.MARKET_DATA_REQUEST_TIMEOUT_MS) ||
+  10_000;
+
+const googleFinanceRequestThrottle =
+  new RequestThrottle(
+    Number(
+      process.env.MARKET_DATA_MIN_REQUEST_INTERVAL_MS,
+    ) || 250,
+  );
+
 export class GoogleFinanceMarketDataProvider
   implements GoogleFinanceProvider
 {
@@ -33,15 +45,19 @@ export class GoogleFinanceMarketDataProvider
       `${googleFinanceExchange}`;
 
     try {
-      const response = await fetch(
-        googleFinanceUrl,
-        {
-          signal: AbortSignal.timeout(5000),
-          headers: {
-            "User-Agent":
-              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      const response = await googleFinanceRequestThrottle.run(
+        () => fetch(
+          googleFinanceUrl,
+          {
+            signal: AbortSignal.timeout(
+              googleFinanceRequestTimeoutMilliseconds,
+            ),
+            headers: {
+              "User-Agent":
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+            },
           },
-        },
+        ),
       );
 
       if (!response.ok) {
